@@ -64,6 +64,9 @@ export const Carrossel = () => {
         <Col xs={6} md={3}>
           <Image src={image3} thumbnail />
         </Col>
+        <Col xs={6} md={3}>
+          <Image src={image3} thumbnail />
+        </Col>
       </Row>
     </Container>
       </div>
