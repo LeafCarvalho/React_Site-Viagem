@@ -26,30 +26,30 @@ export const Carrossel = () => {
             <img
               className={styles.firstImage}
               src={firstImage}
-              alt="Linda Vista"
+              alt="Serra da Moeda - MG"
             />
             <Carousel.Caption>
-              <h3>Linda Vista</h3>
+              <h3>Serra da Moeda - MG</h3>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img
               className={styles.secondImage}
               src={secondImage}
-              alt="Floresta"
+              alt="Parque Tanguá - PR"
             />
             <Carousel.Caption>
-              <h3>Floresta</h3>
+              <h3>Parque Tanguá - PR</h3>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img
               className={styles.thirdImage}
               src={thirdImage}
-              alt="Cachoeira"
+              alt="São Gonçalo do Rio das Pedras - MG"
             />
             <Carousel.Caption>
-              <h3>Cachoeira</h3>
+              <h3>São Gonçalo do Rio das Pedras - MG</h3>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>

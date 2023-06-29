@@ -1,5 +1,6 @@
 //BOOTSTRAP
 import { Container, Nav, Navbar, Tab, Tabs } from 'react-bootstrap';
+import logo from '../../Assets/Logo/logo.png'
 
 import styles from './Header.module.css'
 
@@ -11,7 +12,9 @@ export const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand onClick={() => {navigate('/')}} className={styles.logo}>Bora-Ali</Navbar.Brand>
+        <Navbar.Brand onClick={() => {navigate('/')}} className={styles.logo}>
+          <img src={logo} alt="" />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
