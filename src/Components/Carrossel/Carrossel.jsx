@@ -11,6 +11,9 @@ import image1 from '../../Assets/Thumbs/image1.jpg'
 import image2 from '../../Assets/Thumbs/image2.jpg'
 import image3 from '../../Assets/Thumbs/image3.jpg'
 
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
+
 //CSS
 import styles from './Carrossel.module.css'
 
@@ -26,8 +29,7 @@ export const Carrossel = () => {
               alt="Linda Vista"
             />
             <Carousel.Caption>
-              <h5>Linda Vista</h5>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <h3>Linda Vista</h3>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -37,8 +39,7 @@ export const Carrossel = () => {
               alt="Floresta"
             />
             <Carousel.Caption>
-              <h5>Floresta</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h3>Floresta</h3>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -48,27 +49,10 @@ export const Carrossel = () => {
               alt="Cachoeira"
             />
             <Carousel.Caption>
-              <h5>Cachoeira</h5>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+              <h3>Cachoeira</h3>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
-        <Container>
-      <Row className={styles.thumbs}>
-        <Col xs={6} md={3}>
-          <Image src={image1} thumbnail />
-        </Col>
-        <Col xs={6} md={3}>
-          <Image src={image2} thumbnail />
-        </Col>
-        <Col xs={6} md={3}>
-          <Image src={image3} thumbnail />
-        </Col>
-        <Col xs={6} md={3}>
-          <Image src={image3} thumbnail />
-        </Col>
-      </Row>
-    </Container>
       </div>
     );
   };

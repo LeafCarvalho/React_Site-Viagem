@@ -11,4 +11,5 @@
 body {
     font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
+    background-color: rgba(224, 191, 255, 0.158);
 }
