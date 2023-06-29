@@ -1,0 +1,158 @@
+.container {
+    background-color: var(--light-bg-color);
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    }
+
+.lateralMenu, .hamburguerMenu {
+    position: absolute;
+    width: 15vw;
+    top: 15%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    padding: 2rem 0;
+    max-height: 625px;
+    min-width: 200px;
+    overflow-y: auto;
+    height: 85vh; /*para a borda lateral aparecer ate o fim*/
+    border-right: 1px solid lightgray;
+}
+
+.nav::-webkit-scrollbar {
+    width: 0px;
+}
+
+.nav::-webkit-scrollbar-thumb {
+background-color: transparent;
+}
+
+.navItem {
+    width: 80%;
+    margin: 0 auto;
+    padding: .5rem;
+    
+}
+
+.navItem > div:first-of-type {
+    background-color: var(--lightest-color);
+    color: var(--darkest-color);
+    font-size: 1rem;
+    font-family: 'Poppins';
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: .8rem;
+    border-radius: 8px;
+    font-weight: 400;
+}
+
+.navItem > div:first-of-type > div {
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+}
+
+.navItem > div:first-of-type:hover {
+    font-weight: 600;
+}
+
+.navItem > i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.abrirMenu, .fecharMenu {
+    display: none;
+    position: absolute;
+    left: 20px;
+    top: 30px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.abrirMenu:hover, .fecharMenu:hover {
+    transform: scale(1.025);
+}
+
+.isActive {
+    color: green;
+}
+
+
+/*SUBMENU DE PEDIDOS ---------------------------*/
+.submenu {
+    display: block;
+
+    margin-top: 1rem;
+    margin-left: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    width: 100%;
+}
+
+.submenu .navSubItem {
+    color: var(--darkest-color);
+    font-size: .9rem;
+    font-family: 'Poppins';
+    
+    font-weight: 400;
+    padding: .5rem;
+}
+
+.submenu .navSubItem:hover {
+    background-color: var(--lightest-color);
+    font-weight: 500;
+}
+
+.noneSubmenu {
+    display: none;
+}
+
+/*------------------------------------------------*/
+
+@media (max-width: 1140px) {
+    .navItem {
+        width: 90%;
+    }
+    .navItem > i {
+        display: none;
+    }
+    .submenu {
+        margin-left: 0;
+    }
+    .submenu .navSubItem {
+        font-size: .8rem;
+    }
+ }
+
+ 
+@media (max-width: 800px) {
+   .lateralMenu {
+    left: -100%;
+   }
+
+   .hamburguerMenu {
+    left: 0;
+    width: 40vw;
+    min-width: 300px;
+    z-index: 999;
+    background-color: var(--light-bg-color);
+   }
+
+   .abrirMenu, .fecharMenu {
+    display: block;
+   }
+ }

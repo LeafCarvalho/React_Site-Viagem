@@ -16,11 +16,10 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 //CSS
 import styles from './Carrossel.module.css'
+import { CaixaConteudo } from '../CaixaConteudo/CaixaConteudo'
 
-
-export const Carrossel = () => {
-    return (
-      <div className={styles.carrosselContainer}>
+const children = (
+<div className={styles.carrosselContainer}>
         <Carousel data-bs-theme="white" className={styles.carrossel}>
           <Carousel.Item>
             <img
@@ -54,5 +53,10 @@ export const Carrossel = () => {
           </Carousel.Item>
         </Carousel>
       </div>
+)
+
+export const Carrossel = () => {
+    return (
+      <CaixaConteudo children={children}/>
     );
   };
