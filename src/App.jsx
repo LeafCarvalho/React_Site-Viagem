@@ -1,3 +1,4 @@
+import ReactDOM from 'react-dom';
 //HOOKS
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
