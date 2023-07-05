@@ -6,5 +6,5 @@ export default defineConfig({
   plugins: [
     react()
   ],
-  base: '/React_Site-Viagem/'
+  //base: '/'
 })

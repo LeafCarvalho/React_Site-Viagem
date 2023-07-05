@@ -44,7 +44,7 @@ export const Menu = () => {
             <div className={openMinas ? styles.submenu : styles.noneSubmenu} >
               <Nav.Link className={styles.navSubItem}
               onClick={() => {
-                  navigate("#");
+                  navigate("/mg/belohorizonte");
                 }}>Belo Horizonte</Nav.Link>
 
               <Nav.Link className={styles.navSubItem} 
