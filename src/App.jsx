@@ -9,7 +9,7 @@ import './Global.css'
 import { Home } from './Pages/Home/Home';
 import { About } from './Pages/About/About';
 import { Contact } from './Pages/Contact/Contact';
-import { BeloHorizonte } from './Pages/Cities/BeloHorizonte';
+import { BeloHorizonte } from './Pages/Cities/belohorizonte';
 
 export default function App() {
   return (

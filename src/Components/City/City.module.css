@@ -1,7 +1,7 @@
 .user {
     display: flex;
     align-self: flex-end;
-    justify-self: flex-end;
+    align-items: center;
 }
 
 .input {

@@ -1,5 +1,5 @@
-.container {
-    background-color: var(--light-bg-color);
+.menu {
+    background-color: #f1f1f1;
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -42,10 +42,9 @@ background-color: transparent;
 }
 
 .navItem > div:first-of-type {
-    background-color: var(--lightest-color);
-    color: var(--darkest-color);
+    background-color: #FFFFFF;
+    color: #000000;
     font-size: 1rem;
-    font-family: 'Poppins';
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -93,10 +92,8 @@ background-color: transparent;
 /*SUBMENU DE PEDIDOS ---------------------------*/
 .submenu {
     display: block;
-
     margin-top: 1rem;
     margin-left: 1.5rem;
-
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
@@ -104,17 +101,17 @@ background-color: transparent;
 }
 
 .submenu .navSubItem {
-    color: var(--darkest-color);
+    color: #000000;
     font-size: .9rem;
-    font-family: 'Poppins';
-    
     font-weight: 400;
     padding: .5rem;
 }
 
 .submenu .navSubItem:hover {
-    background-color: var(--lightest-color);
+    background-color: #FFFFFF;
+    border-radius: 5px;
     font-weight: 500;
+    transition-delay: .1s;
 }
 
 .noneSubmenu {

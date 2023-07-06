@@ -25,7 +25,7 @@ export const Menu = () => {
 
 
   return (
-    <div className={styles.container}>
+    <div className={styles.menu}>
 
       {!show ? (<img className={styles.abrirMenu}  alt="Ícone de abrir menu" onClick={() => setShow(true)} />) : 
       (<img className={styles.fecharMenu} src={fecharMenu} alt="Ícone de fechar menu" onClick={() => setShow(false)} />)}

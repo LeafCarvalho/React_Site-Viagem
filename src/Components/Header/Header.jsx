@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 export const Header = () => {
   const navigate = useNavigate();
   return (
-    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
+    <Navbar collapseOnSelect expand="lg" className={styles.header}>
       <Container>
         <Navbar.Brand onClick={() => {navigate('/')}} className={styles.logo}>
           <img src={logo} alt="" />

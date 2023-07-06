@@ -7,11 +7,6 @@ import Row from 'react-bootstrap/Row';
 // CSS
 import styles from './City.module.css';
 
-// ASSETS
-import image1 from '../../Assets/Thumbs/image1.jpg';
-import image2 from '../../Assets/Thumbs/image2.jpg';
-import image3 from '../../Assets/Thumbs/image3.jpg';
-
 // ICONS
 import heart from '../../Assets/Icons/heart.svg'
 import chat from '../../Assets/Icons/chat.svg'
