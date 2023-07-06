@@ -22,3 +22,10 @@
 .user p:last-child, .input button:last-child {
     margin-left: auto;
 }
+
+.user > img {
+    width: 12%;
+    margin-right: 8px;
+    height: 100%;
+    border-radius: 1rem;
+}

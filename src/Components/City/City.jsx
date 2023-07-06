@@ -17,21 +17,19 @@ import heart from '../../Assets/Icons/heart.svg'
 import chat from '../../Assets/Icons/chat.svg'
 import arrowup from '../../Assets/Icons/arrow-up-square.svg'
 import bookmark from '../../Assets/Icons/bookmark.svg'
-import profileImage from '../../Assets/Icons/profileImage.svg'
 
 
-export function City() {
+export function City({ picture, user, profileImage }) {
   return (
     <>
     <Container>
-      <Row>
-        <Col xs={6} md={4}>
+        <Col>
             <div className={styles.user}>
-                <p>imagem</p>
-                <p>usuario</p>
+                <img src={profileImage} alt="" />
+                <p>{user}</p>
                 <p>1 dia</p>
             </div>
-          <Image src={image1} thumbnail />
+          <Image src={picture} thumbnail />
           <div className={styles.input}>
             <button><img src={heart} alt="curtida" /></button>
             <button><img src={chat} alt="comentário" /></button>
@@ -39,35 +37,6 @@ export function City() {
             <button><img src={bookmark} alt="salvar" /></button>
           </div>
         </Col>
-        <Col xs={6} md={4}>
-        <div className={styles.user}>
-                <p>imagem</p>
-                <p>usuario</p>
-                <p>1 dia</p>
-            </div>
-          <Image src={image2} thumbnail />
-          <div className={styles.input}>
-            <button><img src={heart} alt="curtida" /></button>
-            <button><img src={chat} alt="comentário" /></button>
-            <button><img src={arrowup} alt="compartilhar" /></button>
-            <button><img src={bookmark} alt="salvar" /></button>
-          </div>
-        </Col>
-        <Col xs={6} md={4}>
-        <div className={styles.user}>
-                <p>imagem</p>
-                <p>usuario</p>
-                <p>1 dia</p>
-            </div>
-          <Image src={image3} thumbnail />
-          <div className={styles.input}>
-            <button><img src={heart} alt="curtida" /></button>
-            <button><img src={chat} alt="comentário" /></button>
-            <button><img src={arrowup} alt="compartilhar" /></button>
-            <button><img src={bookmark} alt="salvar" /></button>
-          </div>
-        </Col>
-      </Row>
     </Container>
     </>
   );
