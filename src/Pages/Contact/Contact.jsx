@@ -1,9 +1,10 @@
 import { Header } from "../../Components/Header/Header"
 import { useState, useRef } from 'react';
-import { Form } from 'react-bootstrap';
+import { Form, Modal } from 'react-bootstrap';
 import emailjs from '@emailjs/browser';
 import { Menu } from "../../Components/Menu/Menu";
 import { CaixaConteudo } from "../../Components/CaixaConteudo/CaixaConteudo";
+import { ModalFile } from '../../Components/ModalFile/ModalFile'
 
 export function Contact() {
   const form = useRef();
