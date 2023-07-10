@@ -2,6 +2,8 @@ import { Header } from "../../Components/Header/Header"
 import { useState, useRef } from 'react';
 import { Form } from 'react-bootstrap';
 import emailjs from '@emailjs/browser';
+import { Menu } from "../../Components/Menu/Menu";
+import { CaixaConteudo } from "../../Components/CaixaConteudo/CaixaConteudo";
 
 export function Contact() {
   const form = useRef();
@@ -12,6 +14,44 @@ export function Contact() {
   const [nameFocused, setNameFocused] = useState(false)
   const [emailFocused, setEmailFocused] = useState(false)
   const [messageFocused, setMessageFocused] = useState(false)
+
+  const children = (
+    <>
+      <Form ref={form} onSubmit={sendEmail}>
+        <Form.Group controlId="nome">
+          <Form.Label>Nome</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder={nameFocused ? '' : "Digite o seu nome"}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            onFocus={() => setNameFocused(true)}
+            onBlur={() => setNameFocused(false)} />
+        </Form.Group>
+
+        <Form.Group controlId="email">
+          <Form.Label>E-mail</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder={emailFocused ? '' : "ex@exemplo.com"}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            onFocus={() => setEmailFocused(true)}
+            onBlur={() => setEmailFocused(false)} />
+        </Form.Group>
+
+        <Form.Label>Mensagem</Form.Label>
+        <Form.Control
+        as="textarea"
+          placeholder={messageFocused ? '' : "Digite sua mensagem"}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          onFocus={() => setMessageFocused(true)}
+          onBlur={() => setMessageFocused(false)} />
+        <input type="submit" value="Enviar" />
+      </Form>
+      </>
+  )
 
   function sendEmail(e) {
     e.preventDefault();
@@ -47,39 +87,8 @@ export function Contact() {
   return (
     <>
       <Header />
-      <Form ref={form} onSubmit={sendEmail}>
-        <Form.Group controlId="nome">
-          <Form.Label>Nome</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder={nameFocused ? '' : "Digite o seu nome"}
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            onFocus={() => setNameFocused(true)}
-            onBlur={() => setNameFocused(false)} />
-        </Form.Group>
-
-        <Form.Group controlId="email">
-          <Form.Label>E-mail</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder={emailFocused ? '' : "ex@exemplo.com"}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            onFocus={() => setEmailFocused(true)}
-            onBlur={() => setEmailFocused(false)} />
-        </Form.Group>
-
-        <Form.Label>Mensagem</Form.Label>
-        <Form.Control
-        as="textarea"
-          placeholder={messageFocused ? '' : "Digite sua mensagem"}
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          onFocus={() => setMessageFocused(true)}
-          onBlur={() => setMessageFocused(false)} />
-        <input type="submit" value="Enviar" />
-      </Form>
+      <Menu />
+      <CaixaConteudo children={children}/>
     </>
   );
 }

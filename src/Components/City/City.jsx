@@ -31,6 +31,7 @@ export function City({ picture, user, profileImage }) {
             <button><img src={arrowup} alt="compartilhar" /></button>
             <button><img src={bookmark} alt="salvar" /></button>
           </div>
+          <p>Teste</p>
         </Col>
     </Container>
     </>

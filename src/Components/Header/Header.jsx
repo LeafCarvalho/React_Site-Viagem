@@ -20,9 +20,8 @@ export const Header = () => {
           <Nav className="me-auto">
           </Nav>
           <Nav>
-            <Nav.Link onClick={() => {navigate('/')}}>Home</Nav.Link>
-            <Nav.Link eventKey={2} onClick={() => {navigate('/about')}}>
-            Sobre
+            <Nav.Link eventKey={2} onClick={() => {navigate('/')}}>
+            Home
             </Nav.Link>
             <Nav.Link eventKey={3} onClick={() => {navigate('/contact')}}>
             Contato
