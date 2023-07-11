@@ -29,7 +29,7 @@ export const Menu = () => {
 
       {!show ? (<img className={styles.abrirMenu}  alt="Ícone de abrir menu" onClick={() => setShow(true)} />) : 
       (<img className={styles.fecharMenu} src={fecharMenu} alt="Ícone de fechar menu" onClick={() => setShow(false)} />)}
-
+      
       <aside className={show ? styles.hamburguerMenu : styles.lateralMenu}>
         
         <Nav defaultActiveKey="/dashboard"

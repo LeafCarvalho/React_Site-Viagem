@@ -1,4 +1,21 @@
 .modal {
     display: block;
-    position: initial;
+    position: absolute;
+    z-index: 999;
+}
+
+.closeButton:before {
+    content: 'X';
+}
+
+.closeButton {
+    background-color: #FFFFFF;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: 900;
+}
+
+.closeButton:hover {
+    color: #fff491;
+    background-color: #FFFFFF;
 }

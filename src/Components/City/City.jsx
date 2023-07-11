@@ -49,7 +49,6 @@ export function City({ picture, user, profileImage }) {
       <ModalFile 
       onClose={handleCloseModal} 
       onClick={handleModalClick}
-      imageCard={image1}
       />}
     </>
   );
