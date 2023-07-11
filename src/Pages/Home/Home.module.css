@@ -2,7 +2,7 @@
   0% {
     opacity: 0;
   }
-  50% {
+  90% {
     opacity: 0.5;
   }
   100% {
@@ -36,7 +36,7 @@
 
 .about > h1,
 p {
-  animation: fadeIn 2s ease-in;
+  animation: fadeIn 1s ease-in;
 }
 
 .aboutTitle {
