@@ -3,7 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 
 import styles from './ModalFile.module.css';
 
-export const ModalFile = ({ onClose }) => {
+export const ModalFile = ({ onClose, selectedImage }) => {
   const [showModal, setShowModal] = useState(true);
 
   const handleClose = () => {
@@ -17,12 +17,14 @@ export const ModalFile = ({ onClose }) => {
         <div className={`modal show ${styles.modal}`}>
           <Modal.Dialog>
             <Modal.Header closeButton={false}>
-              <Modal.Title>Modal 1</Modal.Title>
+              <Modal.Title>
+                Modal 1
+              </Modal.Title>
               <button className={styles.closeButton} onClick={handleClose} />
             </Modal.Header>
 
             <Modal.Body>
-              <p>Aqui fica a imagem do card</p>
+            {selectedImage && <img src={selectedImage} alt="Imagem" />}
             </Modal.Body>
 
             <Modal.Footer>
