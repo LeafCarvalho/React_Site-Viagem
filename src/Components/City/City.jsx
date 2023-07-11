@@ -18,6 +18,7 @@ import bookmark from '../../Assets/Icons/bookmark.svg';
 export function City({ picture, user, profileImage }) {
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
+  
 
   const handleImageClick = (imageURL) => {
     setSelectedImage(imageURL);

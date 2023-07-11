@@ -8,7 +8,7 @@ export const ModalFile = ({ onClose, selectedImage }) => {
 
   const handleClose = () => {
     setShowModal(false);
-    onClose(); // Chamada à função de fechamento do modal no componente pai (City)
+    onClose();
   };
 
   return (

@@ -1,39 +1,42 @@
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  90% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .about {
-  color: #52f3ff;
+  color: #00eeff;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-  height: 100%;
+  height: 85vh;
+  width: 500vh;
   background-image: url(../../Assets/Thumbs/image3.jpg);
   background-position: center;
   background-size: cover;
   padding: 2rem 1rem;
-  border: 1px solid #D7D7D7;
+  border: 1px solid #d7d7d7;
   border-radius: 7px;
   font-weight: 500;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
 }
 
-.about > h1,
-p {
-  animation: fadeIn 1s ease-in;
+.openMenu {
+  display: flex;
+  height: 80vh;
+  max-height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.openMenu > p {
+  padding-top: 0.5rem;
+  font-size: 1.2rem;
 }
 
 .aboutTitle {
   padding-bottom: 1rem;
+  animation: fadeIn .5s ease-in;
 }
 
 .arrow {
@@ -46,19 +49,8 @@ p {
   border-radius: 2rem;
   cursor: pointer;
   z-index: 999;
-  transition: left .3s ease-in-out;
+  transition: left 0.3s ease-in-out;
 }
-
-.menuClosed {
-  display: flex;
-  height: 85vh;
-  max-height: 100%;
-  width: 500vh;
-  background-color: #ccc;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
-}
-
 
 .arrow.expanded {
   left: 14%;
@@ -68,7 +60,7 @@ p {
 .rightArrow {
   width: 15px;
   height: 15px;
-  border: solid #000;
+  border: solid #121212;
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
@@ -76,12 +68,33 @@ p {
 
 .leftArrow {
   transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-  -ms-transform: rotate(135deg);
 }
 
 .rightArrow {
+  animation: pulse 1s infinite;
   transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
 }
