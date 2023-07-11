@@ -32,7 +32,7 @@ export const Home = () => {
   return (
     <>
       <Header />
-      {menuVisible && <Menu style={{ animationDelay: '2s' }} />}
+      {menuVisible && <Menu />}
       <div className={`${styles.arrow} ${expanded ? styles.expanded : ''}`} onClick={toggleMenu}>
         {menuVisible ? <div className={styles.leftArrow}></div> : <div className={styles.rightArrow}></div>}
       </div>
