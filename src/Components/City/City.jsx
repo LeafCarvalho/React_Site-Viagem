@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
@@ -17,12 +17,23 @@ import bookmark from '../../Assets/Icons/bookmark.svg';
 
 export function City({ picture, user, profileImage }) {
   const [showModal, setShowModal] = useState(false);
+  const [showLoading, setShowLoading] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
-  
+
+  useEffect(() => {
+    if (showLoading) {
+      const timer = setTimeout(() => {
+        setShowLoading(false);
+        setShowModal(true);
+      }, 1000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [showLoading]);
 
   const handleImageClick = (imageURL) => {
     setSelectedImage(imageURL);
-    setShowModal(true);
+    setShowLoading(true);
   };
 
   const handleCloseModal = () => {
@@ -60,7 +71,11 @@ export function City({ picture, user, profileImage }) {
           <p>Teste</p>
         </Col>
       </Container>
-
+      {showLoading && (
+        <div className={styles.loadingOverlay}>
+          <div className={styles.loadingMessage}>Carregando...</div>
+        </div>
+      )}
       {showModal && (
         <ModalFile onClose={handleCloseModal} selectedImage={selectedImage} />
       )}
