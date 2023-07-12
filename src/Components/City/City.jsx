@@ -11,11 +11,9 @@ import styles from './City.module.css';
 
 // ICONS
 import heart from '../../Assets/Icons/heart.svg';
-import chat from '../../Assets/Icons/chat.svg';
-import arrowup from '../../Assets/Icons/arrow-up-square.svg';
 import bookmark from '../../Assets/Icons/bookmark.svg';
 
-export function City({ picture, user, profileImage }) {
+export function City({ picture, user, comment }) {
   const [showModal, setShowModal] = useState(false);
   const [showLoading, setShowLoading] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -59,16 +57,10 @@ export function City({ picture, user, profileImage }) {
               <img src={heart} alt="curtida" />
             </button>
             <button>
-              <img src={chat} alt="comentário" />
-            </button>
-            <button>
-              <img src={arrowup} alt="compartilhar" />
-            </button>
-            <button>
               <img src={bookmark} alt="salvar" />
             </button>
           </div>
-          <p>Teste</p>
+          <p>{ comment }</p>
         </Col>
       </Container>
       {showLoading && (
