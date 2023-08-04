@@ -7,7 +7,7 @@ import { Menu } from "../../Components/Menu/Menu";
 //Hooks
 import { useEffect, useState, useRef } from "react";
 //API Functions
-import { criarViagem, buscandoViagens } from "../../Services/api";
+import { criarViagem, buscandoViagens, atualizarViagem, deletarViagem } from "../../Services/api";
 
 export function Input() {
   const form = useRef();
@@ -33,22 +33,24 @@ export function Input() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const newRow = {
       usuario: nome,
       cidade: cidade,
       estado: estado,
       comentario: message,
     };
-
+  
     try {
       if (editIndex !== -1) {
         const id = tableData[editIndex]._id;
+        await atualizarViagem(id, newRow);
         const newData = [...tableData];
         newData[editIndex] = newRow;
         setTableData(newData);
         setEditIndex(-1);
       } else {
+        await criarViagem(newRow);
         setTableData([...tableData, newRow]);
       }
       setNome("");
@@ -62,6 +64,9 @@ export function Input() {
   };
 
   const handleEditar = (index) => {
+    console.log("Index:", index);
+    console.log("tableData:", tableData);
+  
     setEditIndex(index);
     const row = tableData[index];
     setNome(row.usuario);
@@ -69,10 +74,12 @@ export function Input() {
     setEstado(row.estado);
     setMessage(row.comentario);
   };
+  
 
   const handleExcluir = async (index) => {
     try {
       const id = tableData[index]._id;
+      await deletarViagem(id);
       const newData = [...tableData];
       newData.splice(index, 1);
       setTableData(newData);
