@@ -1,14 +1,14 @@
 import express from "express";
-import livros from "./livrosRoutes.js"
+import viagens from "./viagensRoutes.js"
 
 const routes = (app) => {
   app.route('/').get((req, res) => {
-    res.status(200).send({titulo: "Curso de node"})
+    res.status(200).send({titulo: "Teste"})
   })
 
   app.use(
     express.json(),
-    livros
+    viagens
   )
 }
 
