@@ -1,7 +1,10 @@
+//Libs
 import express from "express";
-import db from "./config/dbConnect.js";
-import viagensRoutes from "./routes/viagensRoutes.js";
 import cors from "cors";
+//Database Connection
+import db from "./config/dbConnect.js";
+//Files imports
+import viagensRoutes from "./routes/viagensRoutes.js";
 
 db.on("error", console.log.bind(console, "Erro de conexão"));
 db.once("open", () => {
