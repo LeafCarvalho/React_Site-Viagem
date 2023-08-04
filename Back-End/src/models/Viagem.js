@@ -6,7 +6,7 @@ const viagemSchema = new mongoose.Schema(
     usuario: {type: String, required: true},
     cidade: {type: String, required: true},
     estado: {type: String, required: true},
-    Comentario: {type: Number}
+    comentario: {type: String, required: true}
   }
 );
 
