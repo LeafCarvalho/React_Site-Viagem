@@ -1,12 +1,12 @@
 import express from "express";
-import db from "./config/dbConnect.js"
-import routes from "./routes/index.js"
-import cors from 'cors'
+import db from "./config/dbConnect.js";
+import viagensRoutes from "./routes/viagensRoutes.js"; // Atualize o caminho de acordo com a localização do arquivo
+import cors from "cors";
 
-db.on("error", console.log.bind(console, 'Erro de conexão'))
+db.on("error", console.log.bind(console, "Erro de conexão"));
 db.once("open", () => {
-  console.log('conexão com o banco feita com sucesso')
-})
+  console.log("Conexão com o banco feita com sucesso");
+});
 
 const app = express();
 
@@ -16,6 +16,6 @@ app.use(cors({
 }));
 
 app.use(express.json());
-routes(app);
+app.use(viagensRoutes); // Defina o caminho base para viagensRoutes
 
 export default app;
