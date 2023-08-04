@@ -1,10 +1,10 @@
-//BOOTSTRAP
-import { Container, Nav, Navbar, Tab, Tabs } from 'react-bootstrap';
+//Assets
 import logo from '../../Assets/Logo/logo.png'
-
+//Bootstrap
+import { Container, Nav, Navbar } from 'react-bootstrap';
+//Css
 import styles from './Header.module.css'
-
-// HOOKS
+//Hooks
 import { Link } from 'react-router-dom';
 
 export const Header = () => {
@@ -18,12 +18,11 @@ export const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
-            <Link to={"/"} className="nav-link"> {/* Adicionando a classe "nav-link" */}
+            <Link to={"/"} className="nav-link">
               Home
             </Link>
-            {/* Adicionando o espaçamento entre as opções */}
             <span style={{ marginRight: '1rem' }}></span>
-            <Link to={"/contact"} className="nav-link"> {/* Adicionando a classe "nav-link" */}
+            <Link to={"/contact"} className="nav-link">
               Contato
             </Link>
           </Nav>

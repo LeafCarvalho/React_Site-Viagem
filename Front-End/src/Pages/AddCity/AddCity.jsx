@@ -1,4 +1,4 @@
-import React from 'react'
+//Components
 import { Input } from '../../Components/Input/Input'
 
 export const AddCity = () => {

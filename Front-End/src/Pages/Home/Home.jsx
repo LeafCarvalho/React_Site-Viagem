@@ -1,14 +1,11 @@
-// COMPONENTS
+//Components
 import { Header } from "../../Components/Header/Header"
 import { Menu } from "../../Components/Menu/Menu"
 import { CaixaConteudo } from "../../Components/CaixaConteudo/CaixaConteudo"
-
-//HOOKS
+//Hooks
 import { useEffect, useState } from "react"
-
-//CSS
+//Css
 import styles from './Home.module.css'
-
 
 export const Home = () => {
   const [loaded, setLoaded] = useState(false);

@@ -1,17 +1,17 @@
-import React from 'react'
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+//Assets
+import image1 from '../../Assets/Thumbs/image1.jpg'
+import image2 from '../../Assets/Thumbs/image2.jpg'
+import image3 from '../../Assets/Thumbs/image3.jpg'
+//Bootstrap
+import { Col, Row } from 'react-bootstrap'
+//Components
 import { City } from '../../Components/City/City'
 import { Menu } from '../../Components/Menu/Menu'
 import { Header } from '../../Components/Header/Header'
 import { CaixaConteudo } from '../../Components/CaixaConteudo/CaixaConteudo'
-
+//Css
 import styles from './Cities.module.css'
-
-import image1 from '../../Assets/Thumbs/image1.jpg'
-import image2 from '../../Assets/Thumbs/image2.jpg'
-import image3 from '../../Assets/Thumbs/image3.jpg'
-
+//Hooks
 import { useNavigate } from 'react-router-dom';
 
 export const BeloHorizonte = () => {

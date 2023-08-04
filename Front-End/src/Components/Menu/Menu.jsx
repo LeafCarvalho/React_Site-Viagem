@@ -1,13 +1,10 @@
-// ESTILO
+//Css
 import styles from './Menu.module.css';
-
-// MODULOS
+//Bootstrap
 import Nav from 'react-bootstrap/Nav';
-
-// HOOKS
+//Hooks
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
-
 
 export const Menu = () => {
 

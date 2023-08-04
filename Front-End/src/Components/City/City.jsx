@@ -1,17 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-import Image from 'react-bootstrap/Image';
-import Row from 'react-bootstrap/Row';
-
-import { ModalFile } from '../ModalFile/ModalFile';
-
-// CSS
+//Bootstrap
+import { Col, Container, Image } from 'react-bootstrap'
+//Css
 import styles from './City.module.css';
-
-// ICONS
+//Hooks
+import React, { useState, useEffect } from 'react';
+//Assets
 import heart from '../../Assets/Icons/heart.svg';
 import bookmark from '../../Assets/Icons/bookmark.svg';
+import { ModalFile } from '../ModalFile/ModalFile';
 
 export function City({ picture, user, comment }) {
   const [showModal, setShowModal] = useState(false);

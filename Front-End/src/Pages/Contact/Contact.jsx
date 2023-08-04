@@ -1,10 +1,13 @@
-import { Header } from "../../Components/Header/Header"
-import { useState, useRef } from 'react';
+//Bootstrap
 import { Form, Modal } from 'react-bootstrap';
-import emailjs from '@emailjs/browser';
+//Components
 import { Menu } from "../../Components/Menu/Menu";
 import { CaixaConteudo } from "../../Components/CaixaConteudo/CaixaConteudo";
-import { ModalFile } from '../../Components/ModalFile/ModalFile'
+import { Header } from "../../Components/Header/Header"
+//Hooks
+import { useState, useRef } from 'react';
+//Libs
+import emailjs from '@emailjs/browser';
 
 export function Contact() {
   const form = useRef();

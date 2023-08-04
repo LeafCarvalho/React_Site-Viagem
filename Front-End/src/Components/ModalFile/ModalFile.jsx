@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+//Bootstrap
 import Modal from 'react-bootstrap/Modal';
-
+//Css
 import styles from './ModalFile.module.css';
+//Hooks
+import React, { useState } from 'react';
 
 export const ModalFile = ({ onClose, selectedImage }) => {
   const [showModal, setShowModal] = useState(true);

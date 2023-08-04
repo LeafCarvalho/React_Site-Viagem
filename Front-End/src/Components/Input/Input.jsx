@@ -1,8 +1,11 @@
-import { Header } from "../../Components/Header/Header";
-import { useState, useRef } from "react";
+//Bootstrap
 import { Form } from "react-bootstrap";
-import { Menu } from "../../Components/Menu/Menu";
+//Componentes
 import { CaixaConteudo } from "../../Components/CaixaConteudo/CaixaConteudo";
+import { Header } from "../../Components/Header/Header";
+import { Menu } from "../../Components/Menu/Menu";
+//Hooks
+import { useState, useRef } from "react";
 
 export function Input() {
   const form = useRef();
