@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-dotenv.config(); // Carrega as variáveis de ambiente do arquivo .env
+dotenv.config();
 
 const mongoDBUrl = process.env.MONGO_DB_URL;
 
