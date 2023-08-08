@@ -52,8 +52,8 @@ export function Input() {
         setEditIndex(-1);
         setEditId("");
       } else {
-        await criarViagem(newRow);
-        setTableData([...tableData, newRow]);
+        const addedRow = await criarViagem(newRow);
+        setTableData([...tableData, addedRow]);
       }
       setNome("");
       setCidade("");
