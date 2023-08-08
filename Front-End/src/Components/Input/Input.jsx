@@ -17,6 +17,7 @@ export function Input() {
   const [message, setMessage] = useState("");
   const [tableData, setTableData] = useState([]);
   const [editIndex, setEditIndex] = useState(-1);
+  const [editId, setEditId] = useState("");
 
   useEffect(() => {
     async function fetchExistingData() {
@@ -33,22 +34,23 @@ export function Input() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const newRow = {
       usuario: nome,
       cidade: cidade,
       estado: estado,
       comentario: message,
     };
-  
+
     try {
       if (editIndex !== -1) {
-        const id = tableData[editIndex]._id;
+        const id = editId;
         await atualizarViagem(id, newRow);
         const newData = [...tableData];
-        newData[editIndex] = newRow;
+        newData[editIndex] = { ...newRow, _id: id };
         setTableData(newData);
         setEditIndex(-1);
+        setEditId("");
       } else {
         await criarViagem(newRow);
         setTableData([...tableData, newRow]);
@@ -63,18 +65,19 @@ export function Input() {
     }
   };
 
-  const handleEditar = (index) => {
-    console.log("Index:", index);
-    console.log("tableData:", tableData);
-  
+  const handleEditar = async (id, index) => {
+    console.log("ID:", id);
     setEditIndex(index);
-    const row = tableData[index];
-    setNome(row.usuario);
-    setCidade(row.cidade);
-    setEstado(row.estado);
-    setMessage(row.comentario);
+    setEditId(id);
+
+    const row = tableData.find((data) => data._id === id);
+    if (row) {
+      setNome(row.usuario);
+      setCidade(row.cidade);
+      setEstado(row.estado);
+      setMessage(row.comentario);
+    }
   };
-  
 
   const handleExcluir = async (index) => {
     try {
@@ -150,7 +153,7 @@ export function Input() {
               <td>{row.estado}</td>
               <td>{row.comentario}</td>
               <td>
-                <button onClick={() => handleEditar(index)}>Editar</button>
+                <button onClick={() => handleEditar(row._id, index)}>Editar</button>
                 <button onClick={() => handleExcluir(index)}>Excluir</button>
               </td>
             </tr>
