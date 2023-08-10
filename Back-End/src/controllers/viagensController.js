@@ -1,5 +1,6 @@
 //Files Imports
 import viagens from "../models/Viagem.js";
+import fs from "fs";
 
 class ViagemController {
   static listarViagens = (req, res) => {
@@ -55,28 +56,54 @@ class ViagemController {
     }
   };
 
-  static atualizarViagem = (req, res) => {
+  static atualizarViagem = async (req, res) => {
     const id = req.params.id;
 
-    viagens.findByIdAndUpdate(id, { $set: req.body }, (err) => {
-      if (!err) {
-        res.status(200).send({ message: "Viagem atualizado com sucesso" });
-      } else {
-        res.status(500).send({ message: err.message });
+    try {
+      const viagem = await viagens.findById(id);
+      if (!viagem) {
+        return res.status(404).send({ message: "Viagem não encontrada" });
       }
-    });
+
+      const { usuario, cidade, estado, comentario } = req.body;
+      const file = req.file;
+
+      if (file) {
+        const filePath = viagem.src;
+        fs.unlinkSync(filePath);
+        viagem.src = file.path;
+      }
+
+      viagem.usuario = usuario;
+      viagem.cidade = cidade;
+      viagem.estado = estado;
+      viagem.comentario = comentario;
+
+      await viagem.save();
+
+      res.status(200).send({ message: "Viagem atualizada com sucesso" });
+    } catch (err) {
+      res.status(500).send({ message: err.message });
+    }
   };
 
-  static excluirViagem = (req, res) => {
+  static excluirViagem = async (req, res) => {
     const id = req.params.id;
 
-    viagens.findByIdAndDelete(id, (err) => {
-      if (!err) {
-        res.status(200).send({ message: "Viagem removido com sucesso" });
-      } else {
-        res.status(500).send({ message: err.message });
+    try {
+      const viagem = await viagens.findById(id);
+      if (!viagem) {
+        return res.status(404).send({ message: "Viagem não encontrada" });
       }
-    });
+
+      const filePath = viagem.src;
+      fs.unlinkSync(filePath);
+
+      await viagens.findByIdAndDelete(id);
+      res.status(200).send({ message: "Viagem removida com sucesso" });
+    } catch (err) {
+      res.status(500).send({ message: err.message });
+    }
   };
 }
 
