@@ -1,16 +1,13 @@
-//Bootstrap
 import { Form, Table } from "react-bootstrap";
-//Components
 import { CaixaConteudo } from "../../Components/CaixaConteudo/CaixaConteudo";
 import { Header } from "../../Components/Header/Header";
 import { Menu } from "../../Components/Menu/Menu";
-//Hooks
 import { useEffect, useState, useRef } from "react";
-//API Functions
 import { criarViagem, buscandoViagens, atualizarViagem, deletarViagem } from "../../Services/api";
 
 export function Input() {
   const form = useRef();
+  const [file, setFile] = useState(null); // State to store the selected file
   const [nome, setNome] = useState("");
   const [cidade, setCidade] = useState("");
   const [estado, setEstado] = useState("");
@@ -32,33 +29,38 @@ export function Input() {
     fetchExistingData();
   }, []);
 
+  const handleFileChange = (file) => {
+    setFile(file);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newRow = {
-      usuario: nome,
-      cidade: cidade,
-      estado: estado,
-      comentario: message,
-    };
+    const formData = new FormData();
+    formData.append("usuario", nome);
+    formData.append("cidade", cidade);
+    formData.append("estado", estado);
+    formData.append("comentario", message);
+    formData.append("file", file);
 
     try {
       if (editIndex !== -1) {
         const id = editId;
-        await atualizarViagem(id, newRow);
+        await atualizarViagem(id, formData);
         const newData = [...tableData];
-        newData[editIndex] = { ...newRow, _id: id };
+        newData[editIndex] = { ...newData, _id: id };
         setTableData(newData);
         setEditIndex(-1);
         setEditId("");
       } else {
-        const addedRow = await criarViagem(newRow);
+        const addedRow = await criarViagem(formData);
         setTableData([...tableData, addedRow]);
       }
       setNome("");
       setCidade("");
       setEstado("");
       setMessage("");
+      setFile(null);
     } catch (error) {
       console.error(error);
       alert("Error submitting data. Please try again later.");
@@ -132,6 +134,16 @@ export function Input() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
+        
+        <Form.Group controlId="file">
+    <Form.Label>Arquivo</Form.Label>
+    <Form.Control
+      type="file"
+      accept=".jpg, .png, .jpeg"
+      onChange={(e) => handleFileChange(e.target.files[0])}
+    />
+  </Form.Group>
+
         <input type="submit" value={editIndex !== -1 ? "Atualizar Registro" : "Enviar"} />
       </Form>
 
