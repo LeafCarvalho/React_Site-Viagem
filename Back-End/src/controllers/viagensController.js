@@ -1,5 +1,6 @@
 //Files Imports
 import viagens from "../models/Viagem.js";
+import fs from 'fs';
 
 class ViagemController {
   static listarViagens = (req, res) => {

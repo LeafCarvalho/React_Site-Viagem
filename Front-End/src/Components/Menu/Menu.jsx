@@ -46,7 +46,7 @@ export const Menu = () => {
               <Nav.Link
                 className={styles.navSubItem}
                 onClick={() => {
-                  navigate("/mg/belohorizonte");
+                  navigate("/cities");
                 }}
               >
                 Belo Horizonte

@@ -7,11 +7,11 @@ import { criarViagem, buscandoViagens, atualizarViagem, deletarViagem } from "..
 
 export function Input() {
   const form = useRef();
-  const [file, setFile] = useState(null); // State to store the selected file
   const [nome, setNome] = useState("");
   const [cidade, setCidade] = useState("");
   const [estado, setEstado] = useState("");
   const [message, setMessage] = useState("");
+  const [file, setFile] = useState(null);
   const [tableData, setTableData] = useState([]);
   const [editIndex, setEditIndex] = useState(-1);
   const [editId, setEditId] = useState("");
@@ -35,14 +35,14 @@ export function Input() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const formData = new FormData();
     formData.append("usuario", nome);
     formData.append("cidade", cidade);
     formData.append("estado", estado);
     formData.append("comentario", message);
     formData.append("file", file);
-
+  
     try {
       if (editIndex !== -1) {
         const id = editId;
@@ -50,22 +50,33 @@ export function Input() {
         const newData = [...tableData];
         newData[editIndex] = { ...newData, _id: id };
         setTableData(newData);
+        
+
+        setNome("");
+        setCidade("");
+        setEstado("");
+        setMessage("");
+        setFile(null);
+  
         setEditIndex(-1);
         setEditId("");
       } else {
         const addedRow = await criarViagem(formData);
         setTableData([...tableData, addedRow]);
+  
+
+        setNome("");
+        setCidade("");
+        setEstado("");
+        setMessage("");
+        setFile(null);
       }
-      setNome("");
-      setCidade("");
-      setEstado("");
-      setMessage("");
-      setFile(null);
     } catch (error) {
       console.error(error);
       alert("Error submitting data. Please try again later.");
     }
   };
+  
 
   const handleEditar = async (id, index) => {
     console.log("ID:", id);
@@ -154,6 +165,7 @@ export function Input() {
             <th>Cidade</th>
             <th>Estado</th>
             <th>Comentario</th>
+            <th>Arquivo</th>
             <th>Ações</th>
           </tr>
         </thead>
@@ -164,6 +176,7 @@ export function Input() {
               <td>{row.cidade}</td>
               <td>{row.estado}</td>
               <td>{row.comentario}</td>
+              <td>{row.file}</td>
               <td>
                 <button onClick={() => handleEditar(row._id, index)}>Editar</button>
                 <button onClick={() => handleExcluir(index)}>Excluir</button>

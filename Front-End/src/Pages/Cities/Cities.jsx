@@ -14,7 +14,7 @@ import styles from './Cities.module.css'
 //Hooks
 import { useNavigate } from 'react-router-dom';
 
-export const BeloHorizonte = () => {
+export const Cities = () => {
   const navigate = useNavigate();
 
   const children = (
@@ -22,7 +22,7 @@ export const BeloHorizonte = () => {
       <div className={styles.novoLocal}>
         <button
           onClick={() => {
-            navigate("/mg/belohorizonte/adicionar-post");
+            navigate("/cities/adicionar-post");
           }}
         >
           Novo Local

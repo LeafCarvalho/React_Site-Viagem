@@ -8,7 +8,7 @@ import './Global.css'
 //PAGES
 import { Home } from './Pages/Home/Home';
 import { Contact } from './Pages/Contact/Contact';
-import { BeloHorizonte } from './Pages/Cities/BeloHorizonte';
+import { Cities } from './Pages/Cities/Cities';
 import { AddCity } from './Pages/AddCity/AddCity';
 
 export default function App() {
@@ -18,8 +18,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path='/mg/belohorizonte' element={<BeloHorizonte />}/>
-        <Route path='/mg/belohorizonte/adicionar-post' element={<AddCity />}/>
+        <Route path="cities" element={<Cities />}/>
+        <Route path="cities/adicionar-post" element={<AddCity />}/>
       </Routes>
     </BrowserRouter>
     </>

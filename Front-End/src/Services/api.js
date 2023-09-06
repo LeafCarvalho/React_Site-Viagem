@@ -39,10 +39,11 @@ async function deletarViagem(id) {
     const response = await viagensAPI.delete(`/${id}`);
     return response.data;
   } catch (error) {
-    console.error(`${error} - Erro ao excluir registro de viagem.`);
+    console.error("Erro ao excluir registro:", error);
     throw error;
   }
 }
+
 
 export {
   buscandoViagens,
